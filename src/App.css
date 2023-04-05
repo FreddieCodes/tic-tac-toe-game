@@ -1,38 +1,94 @@
-.App {
+body {
+  background-color: #1A2A33;
+  font-family: 'Outfit', sans-serif;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
   text-align: center;
+  letter-spacing: 1px;
+  color: #A8BFC9;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p {
+  margin-top: 17px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 0.875px;
+  color: #A8BFC9;
+  mix-blend-mode: normal;
+  opacity: 0.5;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App {
+  padding: 119px 24px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.new-game-menu {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 429px;
+  width: 327px;
+  margin: 0 auto;
 }
 
-.App-link {
-  color: #61dafb;
+.logo-cntnr {
+  padding-bottom: 32px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo {
+  height: 32px;
+}
+
+.mark-cntnr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 327px;
+  height: 205px;
+  background: #1F3641;
+  box-shadow: inset 0px -8px 0px #10212A;
+  border-radius: 15px;
+  margin-bottom: 32px;
+}
+
+.mark-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 279px;
+  height: 72px;
+  background-color: #1A2A33;
+  border-radius: 10px;
+}
+.game-type-cntnr {
+
+}
+
+.new-game-btn {
+  height: 56px;
+  width: 100%;
+  color: #1A2A33;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 1px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.cpu {
+  background-color: #F2B137;
+  margin-bottom: 16px;
+  box-shadow: inset 0px -8px 0px #CC8B13;
+}
+
+.player {
+  background-color: #31C3BD;
+  box-shadow: inset 0px -8px 0px #118C87;
 }
