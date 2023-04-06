@@ -10,7 +10,14 @@ function App() {
         </div>
         <div className="mark-cntnr">
           <h2 className='player-name'>Pick Player 1's Mark</h2>
-          <div className="mark-select"></div>
+          <div className="mark-select">
+              <button className='mark-select-btn x-side '>
+              <img src="/img/player_x.svg" alt="x button" className=""/>
+              </button>
+              <button className='mark-select-btn o-side player-choice'>
+              <img src="/img/player_o.svg" alt="o button" className=""/>
+              </button>
+          </div>
           <p>REMEMBER : X GOES FIRST</p>
         </div>
         <div className='game-type-cntnr'>
