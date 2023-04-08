@@ -1,6 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-export default function NewGameMenu(props) {
+export default function NewGameMenu({ handleGameStart, handleGameType }) {
+  const handleClick = (e) => {
+    handleGameStart();
+    // if the class contains 'cpu' then call handleGameType with 'cpu' as the argument
+    e.target.classList.contains("cpu") ? handleGameType('cpu') : handleGameType('player');
+  }
+  
   return (
     <div className="new-game-menu">
         <div className="logo-cntnr">
@@ -19,8 +25,8 @@ export default function NewGameMenu(props) {
           <p>REMEMBER : X GOES FIRST</p>
         </div>
         <div className='game-type-cntnr'>
-          <button className="new-game-btn cpu" onClick={props.handleGameStart}>New Game (vs CPU)</button>
-          <button className="new-game-btn player" onClick={props.handleGameStart}>New Game (vs Player)</button>
+          <button className="new-game-btn cpu" onClick={handleClick}>New Game (vs CPU)</button>
+          <button className="new-game-btn player" onClick={handleClick}>New Game (vs Player)</button>
         </div>
       </div>
   )
