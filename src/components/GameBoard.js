@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function GameBoard(props) {
+
   return (
     <div className="game-board-cntnr">
       <div className="game-board">
@@ -9,7 +10,8 @@ export default function GameBoard(props) {
             <img src="/img/logo.svg" alt="logo" className="logo"/>
           </div>
           <div className="turn-indicator">
-            <img src="/img/turn-x-grey-small.svg" alt="X" className=""/>
+            { props.currentTurn === "x" && <img src="/img/turn-x-grey-small.svg" alt="X" className=""/> }
+            { props.currentTurn === "o" && <img src="/img/turn-o-grey-small.svg" alt="O" className=""/> }
             <h2>TURN</h2>
           </div>
           <div className="restart-btn">

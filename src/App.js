@@ -8,6 +8,7 @@ function App() {
   const [gameType, setGameType] = useState(null);
   const [player1, setPlayer1] = useState("x");
   const [player2, setPlayer2] = useState("o");
+  const [currentTurn, setCurrentTurn] = useState("o");
 
   const handleMarkSelect = (mark) => {
     setPlayer1(mark);
@@ -25,7 +26,7 @@ function App() {
   return (
     <div className="App">
       { newGame && <NewGameMenu handleGameStart={handleGameStart} handleGameType={handleGameType} handleMarkSelect={handleMarkSelect} /> }
-      { !newGame && <GameBoard gameType={gameType}/> }
+      { !newGame && <GameBoard gameType={gameType} currentTurn={currentTurn}/> }
     </div>
   );
 }
