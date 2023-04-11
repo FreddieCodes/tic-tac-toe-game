@@ -9,7 +9,7 @@ export default function GameBoard(props) {
             <img src="/img/logo.svg" alt="logo" className="logo"/>
           </div>
           <div className="turn-indicator">
-            <img src="/img/turn-o-grey-small.svg" alt="X" className=""/>
+            <img src="/img/turn-x-grey-small.svg" alt="X" className=""/>
             <h2>TURN</h2>
           </div>
           <div className="restart-btn">

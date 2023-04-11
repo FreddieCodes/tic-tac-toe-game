@@ -6,7 +6,14 @@ import './App.css';
 function App() {
   const [newGame, setNewGame] = useState(true);
   const [gameType, setGameType] = useState(null);
+  const [player1, setPlayer1] = useState("x");
+  const [player2, setPlayer2] = useState("o");
 
+  const handleMarkSelect = (mark) => {
+    setPlayer1(mark);
+    mark === 'x' ? setPlayer2('o') : setPlayer2('x');
+  }
+  
   const handleGameStart = () => {
     setNewGame(false);
   }
@@ -17,7 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      { newGame && <NewGameMenu handleGameStart={handleGameStart} handleGameType={handleGameType} /> }
+      { newGame && <NewGameMenu handleGameStart={handleGameStart} handleGameType={handleGameType} handleMarkSelect={handleMarkSelect} /> }
       { !newGame && <GameBoard gameType={gameType}/> }
     </div>
   );

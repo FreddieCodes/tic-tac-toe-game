@@ -1,6 +1,13 @@
 import React from 'react';
 
-export default function NewGameMenu({ handleGameStart, handleGameType }) {
+export default function NewGameMenu({ handleGameStart, handleGameType, handleMarkSelect }) {
+  const handleMarkClick = (e) => {
+    if (e.target.classList.contains("player-choice")) return;
+    e.target.classList.toggle("player-choice");
+    // if the class contains 'x-side' then call handleMarkSelect with 'x' as the argument
+    e.target.classList.contains("x-side") ? handleMarkSelect('x') : handleMarkSelect('o');
+  }
+
   const handleClick = (e) => {
     handleGameStart();
     // if the class contains 'cpu' then call handleGameType with 'cpu' as the argument
@@ -16,11 +23,11 @@ export default function NewGameMenu({ handleGameStart, handleGameType }) {
           <div className="mark-cntnr">
             <h2 className='player-name'>Pick Player 1's Mark</h2>
             <div className="mark-select">
-                <button className='mark-select-btn x-side '>
-                <img src="/img/player_x.svg" alt="x button" className=""/>
+                <button className='mark-select-btn x-side' onClick={handleMarkClick}>
+                  <img src="/img/player_x.svg" alt="x-side"/>
                 </button>
-                <button className='mark-select-btn o-side player-choice'>
-                <img src="/img/player_o.svg" alt="o button" className=""/>
+                <button className='mark-select-btn o-side player-choice' onClick={handleMarkClick}>
+                  <img src="/img/player_o.svg" alt="o-side"/>
                 </button>
             </div>
             <p>REMEMBER : X GOES FIRST</p>
