@@ -17,7 +17,7 @@ export default function GameBoard(props) {
           </div>
         </div>
         <div className="board">
-          <div className="cell"></div>
+          <div className="cell"><img src="/img/o-mark-small.svg" alt="o-mark" className=""/></div>
           <div className="cell"></div>
           <div className="cell"></div>
           <div className="cell"></div>
@@ -27,7 +27,21 @@ export default function GameBoard(props) {
           <div className="cell"></div>
           <div className="cell"></div>
         </div>
-        <div className="statbar"></div>
+        <div className="statbar">
+          <div className="sb-card x">
+            <div className="sb-title">X (YOU)</div>
+            <div className="score">0</div>
+          </div>
+          <div className="sb-card ties">
+            <div className="sb-title">TIES</div>
+            <div className="score">0</div>
+          </div>
+          <div className="sb-card o">
+            <div className="sb-title">O (CPU)</div>
+            <div className="score">0</div>
+          </div>
+          <div></div>
+        </div>
       </div>
     </div>
   )

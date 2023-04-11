@@ -169,7 +169,7 @@ p {
 .board {
   height: 328px;
   width: 328px;
-  margin: 50px auto;
+  margin: 50px auto 0 auto;
   display: grid;
   grid-template-columns: repeat(3, auto);
   justify-content: space-between;
@@ -178,8 +178,60 @@ p {
 .cell {
   width: 96px;
   height: 96px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   background: #1F3641;
   box-shadow: inset 0px -8px 0px #10212A;
   border-radius: 10px;
   cursor: pointer;
+}
+
+/* statbar */
+.statbar {
+  width: 328px;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: space-between;
+}
+
+.sb-card {
+  height: 64px;
+  width: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.x {
+  background: #31C3BD;
+}
+
+.ties {
+  background: #A8BFC9;
+}
+
+.o {
+  background: #F2B137;
+}
+
+.sb-title {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  letter-spacing: 0.75px;
+  color: #1A2A33;
+}
+
+.score {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  text-align: center;
+  letter-spacing: 1.25px;
+  color: #1A2A33;
 }
