@@ -16,7 +16,17 @@ export default function GameBoard(props) {
             <img src="/img/restart-sign.svg" alt="restart" className="restart"/>
           </div>
         </div>
-        <div className="board"></div>
+        <div className="board">
+          <div className="cell"></div>
+          <div className="cell"></div>
+          <div className="cell"></div>
+          <div className="cell"></div>
+          <div className="cell"></div>
+          <div className="cell"></div>
+          <div className="cell"></div>
+          <div className="cell"></div>
+          <div className="cell"></div>
+        </div>
         <div className="statbar"></div>
       </div>
     </div>
