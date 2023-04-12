@@ -1,6 +1,12 @@
 import React from 'react';
+import Cell from './Cell';
 
 export default function GameBoard(props) {
+
+  const handlePlayerClick = (e) => {
+    props.handleCellPlayed(e);
+    props.handleTurn();
+  }
 
   return (
     <div className="game-board-cntnr">
@@ -18,16 +24,17 @@ export default function GameBoard(props) {
             <img src="/img/restart-sign.svg" alt="restart" className="restart"/>
           </div>
         </div>
-        <div className="board">
-          <div className="cell"><img src="/img/o-mark-small.svg" alt="o-mark" className=""/></div>
-          <div className="cell"></div>
-          <div className="cell"></div>
-          <div className="cell"></div>
-          <div className="cell"></div>
-          <div className="cell"></div>
-          <div className="cell"></div>
-          <div className="cell"></div>
-          <div className="cell"></div>
+        <div className="board">         
+          { props.gameState.map((cell, index) => {
+            return < Cell 
+              key={index}
+              cell={cell}
+              cellIndex={index}
+              currentTurn={props.currentTurn}
+              handlePlayerClick={handlePlayerClick}
+            />
+            })
+          }
         </div>
         <div className="statbar">
           <div className="sb-card x">
