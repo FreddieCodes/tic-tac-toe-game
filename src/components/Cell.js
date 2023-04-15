@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Cell(props) {
 
-  const handleClick = (e) => {
-    console.log(props.cell);
+  const handleClick = () => {
+    // console.log(props.cell);
     props.handlePlayerClick(props.cellIndex);
   }  
 

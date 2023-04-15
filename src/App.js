@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import NewGameMenu from './components/NewGameMenu';
 import GameBoard from './components/GameBoard';
+import resultValidator from './utils';
 import './App.css';
 
 function App() {
@@ -8,16 +9,20 @@ function App() {
   const [gameType, setGameType] = useState(null);
   const [player1, setPlayer1] = useState("x");
   const [player2, setPlayer2] = useState("o");
-  const [currentTurn, setCurrentTurn] = useState("o");
+  const [currentTurn, setCurrentTurn] = useState("x");
   const [gameState, setGameState] = useState(["", "", "", "", "", "", "", "", ""]);
+  const [gameActive, setGameActive] = useState(true);
 
   // player1 = {
   //  mark: "x",
   // }
 
   useEffect(() => {
-    console.log("gameState changed");
-    console.log(gameState);
+    if (resultValidator(gameState) === "Round Won") {
+      console.log("Round Won");
+      setGameActive(false);
+    }
+
   }, [gameState]);
   
   const handleMarkSelect = (mark) => {
@@ -38,10 +43,11 @@ function App() {
   }
 
   const handleCellPlayed = (cell) => {
+    if ( gameState[cell] !== "" || gameActive === false ) return;
+      
     let newGameState = [...gameState];
     newGameState[cell] = currentTurn;
     setGameState(newGameState);
-    
   }
 
   return (

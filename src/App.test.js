@@ -1,8 +1,12 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import resultValidator from './utils';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('resultValidator returns Round Won', () => {
+  const gameState = ["x", "x", "x", "", "", "", "", "", ""];
+  expect(resultValidator(gameState)).toBe("Round Won");
+});
+
+test('resultValidator returns Round Draw', () => {
+  const gameState = ["o", "x", "x", "x", "x", "o", "o", "o", "x"];
+  expect(resultValidator(gameState)).toBe("Round Draw");
 });
