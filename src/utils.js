@@ -27,15 +27,11 @@ function handleResultValidation(gameState) {
   }
 
   if (roundWon) {
-    // statusDisplay.innerHTML = winningMessage();
-    // gameActive = false;
     return "Round Won";
-    }
+  }
 
   let roundDraw = !gameState.includes("");
   if (roundDraw) {
-    // statusDisplay.innerHTML = drawMessage();
-    // gameActive = false;
     return "Round Draw";
   }
 }
