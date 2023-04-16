@@ -12,15 +12,22 @@ function App() {
   const [currentTurn, setCurrentTurn] = useState("x");
   const [gameState, setGameState] = useState(["", "", "", "", "", "", "", "", ""]);
   const [gameActive, setGameActive] = useState(true);
+  const [gameResult, setGameResult] = useState(null);
 
   // player1 = {
   //  mark: "x",
   // }
 
   useEffect(() => {
+
     if (resultValidator(gameState) === "Round Won") {
-      console.log("Round Won");
       setGameActive(false);
+      setGameResult("Round Won");
+    }
+
+    if (resultValidator(gameState) === "Round Draw") {
+      setGameActive(false);
+      setGameResult("Round Draw");
     }
 
   }, [gameState]);
@@ -52,6 +59,11 @@ function App() {
 
   return (
     <div className="App">
+      { gameResult && <div className="game-result-modal-cntnr">
+        <div className="game-result-modal">
+          <h2>{gameResult}</h2>
+        </div>
+      </div> }
       { newGame && <NewGameMenu
         handleGameStart={handleGameStart}
         handleGameType={handleGameType}
@@ -64,7 +76,7 @@ function App() {
         currentTurn={currentTurn}
         handleTurn={handleTurn}
         handleCellPlayed={handleCellPlayed}
-        /> 
+        />
       }
     </div>
   );

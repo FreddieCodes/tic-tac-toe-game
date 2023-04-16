@@ -235,3 +235,19 @@ p {
   letter-spacing: 1.25px;
   color: #1A2A33;
 }
+
+/* Game Result Modal */
+.game-result-modal-cntnr {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5)
+}
+
+.game-result-modal {
+  position: absolute;
+  height: 228px;
+  width: 100vw;
+  background-color: #1F3641;
+  top: 220px;
+}
