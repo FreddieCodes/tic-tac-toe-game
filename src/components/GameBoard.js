@@ -5,7 +5,6 @@ export default function GameBoard(props) {
 
   const handlePlayerClick = (e) => {
     props.handleCellPlayed(e);
-    props.handleTurn();
   }
 
   return (

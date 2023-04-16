@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import NewGameMenu from './components/NewGameMenu';
 import GameBoard from './components/GameBoard';
+import GameResultModal from './components/GameResultModal';
 import resultValidator from './utils';
 import './App.css';
 
@@ -19,17 +20,25 @@ function App() {
   // }
 
   useEffect(() => {
-
     if (resultValidator(gameState) === "Round Won") {
       setGameActive(false);
-      setGameResult("Round Won");
+
+      let gameResObj = {
+        // winner set to the opposite of currentTurn for now until we implement the logic to determine the winner based on the last turn
+        winner: currentTurn,
+        loser: currentTurn === "x" ? "o" : "x"
+      }
+
+      setGameResult(gameResObj);
+      // increase winner score
     }
 
     if (resultValidator(gameState) === "Round Draw") {
       setGameActive(false);
       setGameResult("Round Draw");
+      // increase ties score
     }
-
+    // handle turn maybe to go here
   }, [gameState]);
   
   const handleMarkSelect = (mark) => {
@@ -55,15 +64,12 @@ function App() {
     let newGameState = [...gameState];
     newGameState[cell] = currentTurn;
     setGameState(newGameState);
+    handleTurn();
   }
 
   return (
     <div className="App">
-      { gameResult && <div className="game-result-modal-cntnr">
-        <div className="game-result-modal">
-          <h2>{gameResult}</h2>
-        </div>
-      </div> }
+      { gameResult && <GameResultModal gameResult={gameResult} /> }
       { newGame && <NewGameMenu
         handleGameStart={handleGameStart}
         handleGameType={handleGameType}
@@ -74,7 +80,6 @@ function App() {
         gameState={gameState}
         gameType={gameType}
         currentTurn={currentTurn}
-        handleTurn={handleTurn}
         handleCellPlayed={handleCellPlayed}
         />
       }

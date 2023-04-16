@@ -250,4 +250,67 @@ p {
   width: 100vw;
   background-color: #1F3641;
   top: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.modal-btn {
+  height: 52px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: #1A2A33;
+  border-radius: 10px;
+}
+
+.left-btn {
+  width: 76px;
+  background: #A8BFC9;
+  box-shadow: inset 0px -4px 0px #6B8997;
+  margin-right: 16px;
+}
+
+.right-btn {
+  width: 146px;
+  background: #F2B137;
+  box-shadow: inset 0px -4px 0px #CC8B13;
+  text-align: center;
+}
+
+.main-modal-msg {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+  letter-spacing: 1.5px;
+  color: #A8BFC9;
+}
+
+.modal-svg-cntnr {
+  margin-right: 8px;
+}
+.top-modal-msg {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 0.875px;
+  color: #A8BFC9;
+}
+
+.x-msg {
+  display: flex;
+  flex-direction: row;
+  color: #31C3BD;
+}
+
+.o-msg {
+  display: flex;
+  flex-direction: row;
+  color: #F2B137;
 }
