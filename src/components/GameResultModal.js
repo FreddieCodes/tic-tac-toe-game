@@ -1,6 +1,23 @@
 import React from 'react'
 
-export default function GameResultModal({gameResult}) {
+export default function GameResultModal({gameResult, handleRestart, handleCancel, handleQuit, handleNextRound}) {
+
+  const handleCancelClick = () => {
+    handleCancel();
+  }
+
+  const handleRestartClick = () => {
+    handleRestart();
+  }
+
+  const handleNextRoundClick = () => {
+    handleNextRound();
+  }
+
+  const handleQuitCLick = () => {
+    handleQuit();
+  }
+
   // alternatively I could create a function to handle the modal messages and buttons based on gameResult 
   // instead of having the logic in the return statement
   return (
@@ -30,14 +47,14 @@ export default function GameResultModal({gameResult}) {
         </div>
           {
             (gameResult === "restart") && <div className="restart-btns">
-              <button className="modal-btn left-btn">NO, CANCEL</button>
-              <button className="modal-btn right-btn">YES, RESTART</button>
+              <button className="modal-btn left-btn" onClick={handleCancelClick}>NO, CANCEL</button>
+              <button className="modal-btn right-btn" onClick={handleRestartClick}>YES, RESTART</button>
             </div>
           }
           {
             (gameResult === "x" || gameResult === "o" || gameResult === "draw") && <div>
-              <button className="modal-btn left-btn">Quit</button>
-              <button className="modal-btn right-btn">Next Round</button>
+              <button className="modal-btn left-btn" onClick={handleQuitCLick}>Quit</button>
+              <button className="modal-btn right-btn" onClick={handleNextRoundClick}>Next Round</button>
             </div>
           }
       </div>

@@ -82,9 +82,33 @@ function App() {
     setGameResult("restart");
   }
 
+  // handle cancel
+  const handleCancel = () => {
+    setGameResult(null);
+  }
+
+  //handleQuit
+  const handleQuit = () => {
+    setNewGame(true);
+    setGameType(null);
+    handleRestart();
+  }
+
+  //handleNextRound seperate from handleRestart until we have a score system
+  const handleNextRound = () => {
+    handleRestart();
+  }
+
   return (
     <div className="App">
-      { gameResult && <GameResultModal gameResult={gameResult} /> }
+      { gameResult && <GameResultModal
+        gameResult={gameResult}
+        handleRestart={handleRestart}
+        handleCancel={handleCancel}
+        handleQuit={handleQuit}
+        handleNextRound={handleNextRound}
+        />
+      }
       { newGame && <NewGameMenu
         handleGameStart={handleGameStart}
         handleGameType={handleGameType}
