@@ -7,6 +7,11 @@ export default function GameBoard(props) {
     props.handleCellPlayed(e);
   }
 
+  const handleRestartClick = () => {
+    props.handleRestartBtn();
+  }
+  
+
   return (
     <div className="game-board-cntnr">
       <div className="game-board">
@@ -20,7 +25,7 @@ export default function GameBoard(props) {
             <h2>TURN</h2>
           </div>
           <div className="restart-btn">
-            <img src="/img/restart-sign.svg" alt="restart" className="restart"/>
+            <img src="/img/restart-sign.svg" alt="restart" className="restart" onClick={handleRestartClick}/>
           </div>
         </div>
         <div className="board">         

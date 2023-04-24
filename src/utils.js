@@ -11,6 +11,7 @@ const winningConditions = [
 
 function handleResultValidation(gameState) {
   let roundWon = false;
+  let result = "";
 
   for (let i = 0; i <= 7; i++) {
       const winCondition = winningConditions[i];
@@ -22,17 +23,19 @@ function handleResultValidation(gameState) {
       }
       if (a === b && b === c) {
           roundWon = true;
+          result = a;
           break
       }
   }
 
   if (roundWon) {
-    return "Round Won";
+    return result;
   }
 
   let roundDraw = !gameState.includes("");
   if (roundDraw) {
-    return "Round Draw";
+    result = "draw";
+    return result;
   }
 }
 

@@ -20,22 +20,25 @@ function App() {
   // }
 
   useEffect(() => {
-    if (resultValidator(gameState) === "Round Won") {
+    if (typeof resultValidator(gameState) !== "string" ) return;
+    let result = resultValidator(gameState);
+
+    if (result === "x" || result === "o" ) {
       setGameActive(false);
+      setCurrentTurn(result); // this is to show the winner's mark on the board as the last move
 
-      let gameResObj = {
-        // winner set to the opposite of currentTurn for now until we implement the logic to determine the winner based on the last turn
-        winner: currentTurn,
-        loser: currentTurn === "x" ? "o" : "x"
-      }
+      // let gameResObj = {
+      //   winner: result,
+      //   loser: result === "x" ? "o" : "x"
+      // }
 
-      setGameResult(gameResObj);
+      setGameResult(result);
       // increase winner score
     }
 
-    if (resultValidator(gameState) === "Round Draw") {
+    if (result === "draw") {
       setGameActive(false);
-      setGameResult("Round Draw");
+      setGameResult(result);
       // increase ties score
     }
     // handle turn maybe to go here
@@ -60,11 +63,23 @@ function App() {
 
   const handleCellPlayed = (cell) => {
     if ( gameState[cell] !== "" || gameActive === false ) return;
-      
+    
     let newGameState = [...gameState];
     newGameState[cell] = currentTurn;
     setGameState(newGameState);
     handleTurn();
+  }
+
+  // handleRestart
+  const handleRestart = () => {
+    setGameState(["", "", "", "", "", "", "", "", ""]);
+    setGameActive(true);
+    setCurrentTurn("x");
+    setGameResult(null);
+  }
+
+  const handleRestartBtn = () => {
+    setGameResult("restart");
   }
 
   return (
@@ -81,6 +96,7 @@ function App() {
         gameType={gameType}
         currentTurn={currentTurn}
         handleCellPlayed={handleCellPlayed}
+        handleRestartBtn={handleRestartBtn}
         />
       }
     </div>

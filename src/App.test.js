@@ -3,10 +3,10 @@ import resultValidator from './utils';
 
 test('resultValidator returns Round Won', () => {
   const gameState = ["x", "x", "x", "", "", "", "", "", ""];
-  expect(resultValidator(gameState)).toBe("Round Won");
+  expect(resultValidator(gameState)).toBe("x");
 });
 
 test('resultValidator returns Round Draw', () => {
   const gameState = ["o", "x", "x", "x", "x", "o", "o", "o", "x"];
-  expect(resultValidator(gameState)).toBe("Round Draw");
+  expect(resultValidator(gameState)).toBe("draw");
 });

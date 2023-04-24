@@ -252,7 +252,7 @@ p {
   top: 220px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 
@@ -275,6 +275,10 @@ p {
   margin-right: 16px;
 }
 
+.restart-btns .left-btn {
+  width: 139px;
+}
+
 .right-btn {
   width: 146px;
   background: #F2B137;
@@ -289,6 +293,7 @@ p {
   text-align: center;
   letter-spacing: 1.5px;
   color: #A8BFC9;
+  margin-bottom: 24px;
 }
 
 .modal-svg-cntnr {
@@ -301,6 +306,7 @@ p {
   text-align: center;
   letter-spacing: 0.875px;
   color: #A8BFC9;
+  margin-bottom: 16px;
 }
 
 .x-msg {
