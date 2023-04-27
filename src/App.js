@@ -14,6 +14,11 @@ function App() {
   const [gameState, setGameState] = useState(["", "", "", "", "", "", "", "", ""]);
   const [gameActive, setGameActive] = useState(true);
   const [gameResult, setGameResult] = useState(null);
+  const [score, setScore] = useState({
+                              "x": 0,
+                              "o": 0,
+                              "draw": 0
+                            });
 
   // player1 = {
   //  mark: "x",
@@ -33,6 +38,7 @@ function App() {
       // }
 
       setGameResult(result);
+      handleScore(result);
       // increase winner score
     }
 
@@ -40,6 +46,7 @@ function App() {
       setGameActive(false);
       setGameResult(result);
       // increase ties score
+      handleScore(result);
     }
     // handle turn maybe to go here
   }, [gameState]);
@@ -92,11 +99,23 @@ function App() {
     setNewGame(true);
     setGameType(null);
     handleRestart();
+    setScore({
+      "x": 0,
+      "o": 0,
+      "draw": 0
+    });
   }
 
   //handleNextRound seperate from handleRestart until we have a score system
   const handleNextRound = () => {
     handleRestart();
+  }
+
+  //handleScore
+  const handleScore = (result) => {
+    let currentScore = score;
+    currentScore[result]++;
+    setScore(currentScore);
   }
 
   return (
@@ -121,6 +140,7 @@ function App() {
         currentTurn={currentTurn}
         handleCellPlayed={handleCellPlayed}
         handleRestartBtn={handleRestartBtn}
+        score={score}
         />
       }
     </div>

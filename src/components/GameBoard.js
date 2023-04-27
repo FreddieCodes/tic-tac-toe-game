@@ -43,15 +43,15 @@ export default function GameBoard(props) {
         <div className="statbar">
           <div className="sb-card x">
             <div className="sb-title">X (YOU)</div>
-            <div className="score">0</div>
+            <div className="score">{props.score["x"]}</div>
           </div>
           <div className="sb-card ties">
             <div className="sb-title">TIES</div>
-            <div className="score">0</div>
+            <div className="score">{props.score["draw"]}</div>
           </div>
           <div className="sb-card o">
             <div className="sb-title">O (CPU)</div>
-            <div className="score">0</div>
+            <div className="score">{props.score["o"]}</div>
           </div>
           <div></div>
         </div>
