@@ -85,9 +85,32 @@ p {
   border-radius: 10px;
 }
 
-.player-choice {
-  background-color: #A8BFC9;
+.x-side {
+  background-image: url("../public/img/player_x.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
+
+.o-side {
+  background-image: url("../public/img/player_o.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.player-choice.o-side {
+  background-color: #A8BFC9;
+  background-image: url("../public/img/player_o_active.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.player-choice.x-side {
+  background-color: #A8BFC9;
+  background-image: url("../public/img/player_x_active.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 
 .game-type-cntnr {
 

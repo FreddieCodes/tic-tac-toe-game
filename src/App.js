@@ -20,7 +20,7 @@ function App() {
                               "draw": 0
                             });
 
-  // player1 = {
+  // setPlayer1 = {
   //  mark: "x",
   // }
 
@@ -54,6 +54,7 @@ function App() {
   const handleMarkSelect = (mark) => {
     setPlayer1(mark);
     mark === 'x' ? setPlayer2('o') : setPlayer2('x');
+    console.log("player1: ", player1);
   }
 
   const handleGameStart = () => {
